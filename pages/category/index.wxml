@@ -1,0 +1,32 @@
+<!--pages/category/index.wxml 分类处进来-->
+<wxs src="../../utils/tools.wxs" module="tools"/>
+<view class='category_box'>
+  <view class='null_box'></view>
+  <view class='all_list'>
+    <view class='top_listbox'>
+      <view wx:for="{{first_top}}" wx:key="index" class='top_list {{changbgc_top == index ? "Bgc_top" : null}}' bindtap='changeBg' data-topindex='{{index}}' data-opsition='top' data-item='{{item}}'>{{item}}</view>
+    </view>
+    <view class='bottom_listbox'>
+      <view wx:for="{{first_bottom}}" wx:key="index" class='bottom_list {{changbgc_bottom == index ? "Bgc_bottom" : null}}' bindtap='changeBg' data-bottomindex='{{index}}' data-opsition='bottom' data-item='{{item}}'>{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 没有内容时 -->
+  <view wx:if="{{falg}}" class='noInfo'>暂无数据</view>
+
+  <view class='Books_box' wx:else>
+    <view class='Book_list' wx:for="{{currentBook}}" wx:key="index" bindtap='goRead' data-read='{{item._id}}'>
+      <view class='Book_image'>
+        <image lazy-load='true' src='{{tools.cover(item.cover)}}'></image>
+      </view>
+      <view class='Book_content'>
+        <view>{{item.title}}</view>
+        <view>{{item.author}} | {{item.majorCate}}</view>
+        <view>{{item.shortIntro}}</view>
+        <view>
+          {{item.latelyFollower >= 10000 ? tools.math_round(item.latelyFollower) : item.latelyFollower + " 人气"}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,224 @@
+/* pages/search/index.wxss */
+/* 搜索框 */
+.inp {
+  width: 100vw;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+.center_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+.inp input {
+  width: 85%;
+  height: 60%;
+  border: 1px solid rgb(220, 220, 220);
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  padding-left: 20rpx;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+}
+.inp .search {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 34rpx;
+}
+
+.hot_box {
+  width: 100%;
+}
+
+/* 搜索提示 */
+
+.search_tips_box {
+  width: 100%;
+  height: calc(100vh - 54px);
+  overflow-y: scroll;
+}
+
+.search_tips_box .search_tips_list {
+  width: 90%;
+  margin: 25rpx auto 0;
+  color: rgb(100, 100, 100);
+  font-size: 34rpx;
+}
+
+/* 搜索热词栏 搜索历史栏*/
+
+.hot_box .hot_words_top, .hot_box .search_history_top {
+  width: 90%;
+  margin: 40rpx auto 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hot_box .hot_words_top, .hot_box .search_history_top .delete {
+  color: #c8c8c8;
+  font-size: 28rpx;
+  padding-right: 10rpx;
+}
+
+.hot_box .hot_words_top .rep {
+  display: flex;
+  align-items: center;
+}
+
+.hot_box .hot_words_top .rep text {
+  color: #c8c8c8;
+  font-size: 28rpx;
+  padding-right: 10rpx;
+}
+
+.hot_box .hot_words_top image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* 搜索热词的内容栏  搜索历史的内容栏*/
+
+.hot_box .hot_words_bottom, .hot_box .search_history_bottom {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hot_box .hot_words_bottom view, .hot_box .search_history_bottom view {
+  background-color: rgb(240, 240, 240);
+  padding: 12rpx;
+  border-radius: 30rpx;
+  margin: 20rpx 20rpx 0 0;
+  color: rgb(100, 100, 100);
+  font-size: 28rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+/* 点击搜索按钮 */
+
+.search_center {
+  width: 0rpx;
+  height: 0rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: searchCenter 0.5s;
+}
+
+.search_big {
+  width: 100vw;
+  height: 100%;
+  background-color: white;
+}
+
+@keyframes searchCenter {
+  from {
+    width: 0rpx;
+    height: 0rpx;
+  }
+
+  to {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.image_box {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: fixed;
+  right: 50rpx;
+  bottom: 80rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.image_box image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.image_bign {
+  animation: imagebox 0.3s ease-out;
+}
+
+@keyframes imagebox {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 书籍box */
+
+.Books_box {
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.Books_box .Book_list {
+  width: 90%;
+  height: 210rpx;
+  margin: 20rpx auto;
+}
+
+.Books_box .Book_list .Book_image {
+  width: 23%;
+  height: 100%;
+  float: left;
+  box-shadow: 5px 5px 5px #888;
+}
+
+.Books_box .Book_list .Book_image image {
+  width: 100%;
+  height: 100%;
+}
+
+.Book_content {
+  display: flex;
+  width: 76%;
+  height: 100%;
+  float: left;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Book_content view {
+  padding-left: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Book_content view:nth-child(2), .Book_content view:nth-child(3) {
+  font-size: 26rpx;
+  color: rgb(179, 178, 176);
+}
+
+.Book_content view:nth-child(4) {
+  font-size: 26rpx;
+  color: red;
+}

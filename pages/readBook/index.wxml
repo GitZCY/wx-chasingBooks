@@ -1,0 +1,115 @@
+<!--pages/readBook/index.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools"/>
+<!-- 轻提示 -->
+<van-toast id="van-toast"/>
+
+<view class='{{dis ? "bg_white" : "bg_white_null"}}'></view>
+<view class='readBook_box'>
+  <!-- 头部图书栏 蒙层+背景图-->
+  <view class='bg_box' style='background-image: url({{image}})'></view>
+  <view class='Mongolia_box'></view>
+
+  <view class='head_box'>
+    <view class='head_left'>
+      <image lazy-load='true' src='{{image}}'></image>
+    </view>
+    <view class='head_right'>
+      <view class='head_rightName'>{{bookname}}</view>
+      <view class='head_rightUser'>
+        <text class='userName'>{{user}}</text>
+        <text class='one'> | </text>
+        <text class='category'>{{book_briefs}}</text>
+      </view>
+      <view class='head_rightCount'>{{contlength}} | 5书币 /千字</view>
+    </view>
+  </view>
+
+  <!-- 图书以下 -->
+  <view class='body_box'>
+    <!-- 评分/人气 -->
+    <view class='score_box'>
+      <view class='score_left'>
+
+        <view class='cao'>
+          <view class='score_left_top'>{{scores}}</view>
+          <van-rate readonly value="{{ value }}" bind:change="onChange" size="14"></van-rate>
+        </view>
+
+        <view class="score_left_bottom">{{scores_user}}人评分</view>
+      </view>
+      <view class='score_center'>
+        <view class='score_center_top'>{{retains}}%</view>
+        <view class='score_center_bottom'>读者留存</view>
+      </view>
+      <view class='score_right'>
+        <view class='score_right_top'>{{chasings}}</view>
+        <view class='score_right_bottom'>追书人气</view>
+      </view>
+    </view>
+
+    <!-- 简介 -->
+    <view class='brief_box'>
+      <view class='brief_box_head'>
+        <view class='title'>简介</view>
+        <view class='down_img' bindtap='down'>
+          <image lazy-load='true' src='/images/down.png'></image>
+        </view>
+      </view>
+      <view class='brief_box_list'>
+        <text wx:for="{{briefs}}" wx:key="index">{{item}}</text>
+      </view>
+      <view class='brief_info'>
+        <view class='{{flag ? "brief_big" : "brief_small"}}'>
+          {{strs}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 目录 -->
+    <view class='catalog_box' bindtap='oncatalog'>
+      <view class='catalog_left'>目录</view>
+      <view class='catalog_right_box'>
+        <view class='catalog_right'>{{catalog}}</view>
+        <view class='catalog_image'>
+          <image lazy-load='true' src='/images/right.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 分割线 -->
+    <view class='max_width_null'></view>
+
+    <!-- 名下书籍 -->
+    <view class='user_book_box'>
+      <view class='user_book_head'>作者名下书籍</view>
+     
+      <view class='flex_box'>
+        <view class='user_book_imgbox' wx:for="{{userBooks}}" wx:key="index">
+          <view class='user_book_img'><image lazy-load='true' src='{{tools.cover(item.cover)}}'></image></view> 
+          <view class='user_book_name'>{{item.title}}</view>
+          <view class='user_book_hot'>{{chasings}}人气</view>
+        </view>  
+      </view>
+    </view>
+   
+  </view>
+  <!-- 加入书架 -->
+  <view class='reading_box'>
+    <view class="reading_open" bindtap='joinBookshelf'>加入书架</view>
+    <view class='reading_in' bindtap='playRead'>开始阅读</view>
+  </view>
+<!-- {{flag ? "animation_list" : null}} wx:if='{{flag_list}}' wx:if='{{list}}' -->
+  <view class='catalog_listbox' wx:if='{{flag_list}}'>
+    <view class='catalog_head' wx:if='{{list}}'>
+      <view class='catalog_image' bindtap='back'>
+        <image src='/images/leftblack.png'></image>   
+      </view>
+      <view class='catalog_name'>{{bookname}}</view> 
+    </view>
+
+    <view class='catalog_list' wx:if='{{list}}'>
+      <view class='content' wx:for="{{allChapters}}" wx:key="index" catchtap="onChapters" 
+      data-index='{{index}}' data-bookId='{{currentbook._id}}'>{{index + 1}}. {{item.title}}</view>
+    </view>
+  </view>
+</view>

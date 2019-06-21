@@ -1,0 +1,52 @@
+{
+  "pages": [
+    
+    "pages/bookshelf/index",
+    "pages/classification/index",
+    "pages/Ranking/index",
+    "pages/search/index",
+    "pages/category/index",
+    "pages/readBook/index",
+    "pages/rankList/index",
+    "pages/article/index",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#CDC97D",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#CDC97D",
+    "list": [
+      {
+        "pagePath": "pages/bookshelf/index",
+        "text": "书架",
+        "iconPath": "/images/bookun.png",
+        "selectedIconPath": "/images/bookon.png"
+      },
+      {
+        "pagePath": "pages/classification/index",
+        "text": "分类",
+        "iconPath": "/images/ificationun.png",
+        "selectedIconPath": "/images/ificationon.png"
+      },
+      {
+        "pagePath": "pages/Ranking/index",
+        "text": "排行",
+        "iconPath": "/images/Rankingun.png",
+        "selectedIconPath": "/images/Rankingon.png"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索",
+        "iconPath": "/images/searchun.png",
+        "selectedIconPath": "/images/searchon.png"
+      }
+    ]
+  },
+  
+  "sitemapLocation": "sitemap.json"
+}

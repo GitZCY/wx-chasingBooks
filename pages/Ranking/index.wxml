@@ -1,0 +1,69 @@
+<!--pages/Ranking/index.wxml 排行-->
+<wxs src="../../utils/tools.wxs" module="tools"/>
+<view class='rankingBox'>
+  <view class='maleBox'>
+    <view class='male_fe'>
+      <text>男生</text>
+    </view>
+
+    <view class='rank_listBox' wx:for="{{maleArr}}" wx:key="index" bindtap='goList' data-item='{{item.title}}' data-listid='{{item._id}}' data-monthRank='{{item.monthRank}}' data-totalRank='{{item.totalRank}}'>
+      <view class='rank_listLeft'>
+        <image src='{{tools.cover(item.cover)}}'></image>
+      </view>
+      <view class='rank_listRight'>
+        {{item.title}}
+      </view>
+    </view>
+
+    <view class='rank_otherBox' bindtap='open'>
+      <view class='rank_otherLeft'>
+        <image src='/images/more.png'></image>
+      </view>
+      <view class='rank_otherCenter'>
+        别人家的排行榜
+      </view>
+      <view class='rank_otherRight'>
+        <image src='/images/down.png' class='{{flag_male ? "open" : null}}'></image>
+      </view>
+    </view>
+    
+    <view class='other_rankbox {{flag_male ? "other_rankup" : null}}'>
+      <view class='other_hot' wx:for="{{male_others}}" wx:key="{{index}}" bindtap='goList' data-item='{{item.title}}' data-listid='{{item._id}}' data-monthRank='{{item.monthRank}}' data-totalRank='{{item.totalRank}}'>
+        <view class='null_box'></view>
+        <view class='other_name'>{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='femaleBox'>
+    <view class='male_fe'>
+       <text>女生</text> 
+    </view>
+    <view class='rank_listBox' wx:for="{{femaleArr}}" wx:key="index" bindtap='goList' data-item='{{item.title}}' data-listid='{{item._id}}' data-monthRank='{{item.monthRank}}' data-totalRank='{{item.totalRank}}'>
+      <view class='rank_listLeft'>
+        <image src='{{tools.cover(item.cover)}}'></image>        
+      </view>
+      <view class='rank_listRight'>
+        {{item.title}}
+      </view>
+    </view>
+    <view class='rank_otherBox' bindtap='openFemale'>
+      <view class='rank_otherLeft'>
+        <image src='/images/more.png'></image>
+      </view>
+      <view class='rank_otherCenter'>
+        别人家的排行榜
+      </view>
+      <view class='rank_otherRight'>
+        <image src='/images/down.png'  class='{{flag_female ? "open" : null}}'></image>
+      </view>
+    </view>
+    <view class='other_rankbox {{flag_female ? "other_rankup" : null}}'>
+      <view class='other_hot' wx:for="{{female_others}}" wx:key="{{index}}" bindtap='goList' data-item='{{item.title}}' data-listid='{{item._id}}' data-monthRank='{{item.monthRank}}' data-totalRank='{{item.totalRank}}'>
+        <view class='null_box'></view>
+        <view class='other_name'>{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,22 @@
+var coverImg = function(arr) {
+  var random = Math.floor(Math.random() * arr.length) 
+  // return decodeURIComponent(arr[random]).replace("/agent/", "")
+  return "http://statics.zhuishushenqi.com" + arr[random]
+}
+
+var cover = function(cover) {
+  return "http://statics.zhuishushenqi.com" + cover
+}
+
+//处理人气方法
+var math_round = function(num) {
+  var min = parseFloat(num / 10000)
+  var thousand = min.toFixed(1)
+  return thousand + " 万人气"
+}
+
+module.exports = {
+  coverImg: coverImg,
+  cover: cover,
+  math_round: math_round
+};

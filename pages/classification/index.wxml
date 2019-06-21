@@ -1,0 +1,82 @@
+<!--pages/classification/index.wxml 分类页面-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class='classification_leftbox'>
+  <view class='classification_left'>
+    <view wx:for="{{list}}" wx:key="index" class='classification_list' >
+      <view class='left_borderbox {{borderleft == index ? "left_border" : null}}' bindtap="changeborder" data-index="{{index}}" 
+      data-item='{{item}}'>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- scroll-top='{{scrollTop}}' -->
+<scroll-view scroll-y="true" class='classification_rightbox' scroll-into-view="{{toView}}" scroll-with-animation="true">
+  <view class='sex_male' id='man'>
+    <text>男生</text>
+  </view>
+
+  <view class="male_box">
+
+    <view wx:for="{{male}}" wx:key="index" class='male_list' bindtap='category' data-item='{{item}}' data-sex='male'>
+      <view class='male_leftbox'>  
+        <view class='name_box'>
+         <text class='name_top'>{{item.name}}</text>
+         <text class="name_bottom">{{item.bookCount}}本</text>
+        </view>
+      </view>
+
+      <view class='male_img'>
+        <image lazy-load='true' src='{{tools.coverImg(item.bookCover)}}'></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='sex_male' id='woman'>
+    <text>女生</text>
+  </view>
+
+  <view class="male_box">
+
+    <view wx:for="{{female}}" wx:key="index" class='male_list' bindtap='category' data-item='{{item}}' data-sex='female'>
+
+      <view class='male_leftbox'>  
+        <view class='name_box'>
+         <text class='name_top'>{{item.name}}</text>
+         <text class="name_bottom">{{item.bookCount}}本</text>
+        </view>
+      </view>
+
+      <view class='male_img'>
+        <image lazy-load='true' src='{{tools.coverImg(item.bookCover)}}'></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='sex_male' id='pub'>
+    <text>出版</text>
+  </view>
+
+  <view class="male_box">
+
+    <view wx:for="{{publish}}" wx:key="index" class='male_list' bindtap='category' data-item='{{item}}' data-sex='press'>
+
+      <view class='male_leftbox'>  
+        <view class='name_box'>
+         <text class='name_top'>{{item.name}}</text>
+         <text class="name_bottom">{{item.bookCount}}本</text>
+        </view>
+      </view>
+
+      <view class='male_img'>
+        <image lazy-load='true' src='{{tools.coverImg(item.bookCover)}}'></image>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>
+
+<!--  <view>女生</view>
+  <view>出版</view> -->

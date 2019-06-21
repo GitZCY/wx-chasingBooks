@@ -1,0 +1,141 @@
+/* pages/Ranking/index.wxss */
+/* 男生女生栏 */
+.rankingBox .male_fe{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  text-align: center;
+  background: rgb(250, 250, 250) 
+}
+
+.rankingBox .rank_listBox {
+  width: 100%;
+  height: 120rpx;
+} 
+
+.rankingBox .rank_listBox .rank_listLeft {
+  height: 100%;
+  width: 15%;
+  float: left;
+  position: relative;
+}
+
+.rankingBox .rank_listBox .rank_listLeft image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rankingBox .rank_listBox .rank_listRight {
+  height: 100%;
+  width: 83%;
+  float: left;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* 别人家的排行榜 */
+.rank_otherBox {
+  width: 100%;
+  height: 120rpx;
+}
+.rank_otherBox .rank_otherLeft {
+  height: 100%;
+  width: 15%;
+  float: left;
+  position: relative;
+}
+.rank_otherBox .rank_otherLeft image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.rank_otherCenter {
+  height: 100%;
+  width: 70%;
+  float: left;
+  line-height: 120rpx;
+  font-size: 30rpx;
+}
+.rank_otherBox .rank_otherRight {
+  height: 100%;
+  width: 15%;
+  float: left;
+  position: relative;
+}
+.rank_otherBox .rank_otherRight image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  transition: all 0.5s;
+}
+/* 点击下箭头 */
+.open {
+  transform: rotate(180deg) translateZ(0)
+}
+
+/* 别人家的榜单列表 */
+.other_rankbox {
+  height: 0;
+  overflow: hidden;
+}
+.other_rankup {
+  height: 100%;
+}
+.other_hot {
+  width: 100%;
+  height: 120rpx;
+}
+.other_hot .null_box {
+  height: 100%;
+  width: 15%;
+  float: left;
+  position: relative;
+}
+.other_hot .other_name {
+  height: 100%;
+  width: 83%;
+  float: left;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  color: rgb(80, 80, 80);
+  border-top: 1px solid #ccc;
+}
+
+
+/* 伪类 */
+.rankingBox .male_fe text {
+  position: relative;
+}
+
+.male_fe text::after, .male_fe	text::before {
+  content: "";
+  position: absolute;
+  background-color: #ccc;
+  height: 1px;
+  width: 200rpx;
+  /* width: 50vw; */
+  top: 50%;
+}
+
+.male_fe  text::after {
+  left: 100rpx;
+} 
+
+.male_fe	text::before {
+  right: 100rpx;
+}
+

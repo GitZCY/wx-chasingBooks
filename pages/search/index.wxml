@@ -1,0 +1,76 @@
+<!--pages/search/index.wxml 搜索-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<!-- <van-search value="{{value}}" placeholder="请输入搜索关键词" use-action-slot="true" bind:search="onSearch" bind:change="onChange"
+  bind:clear="onClear" bind:focus="onFocus" bind:blur="blur">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search> -->
+
+<view class='inp'>
+  <view class='center_box'>
+    <input placeholder='请输入搜索关键词' value='{{value}}' bindinput="onChange"></input>
+    <text class='search' bindtap='onSearch'>搜索</text>
+  </view>
+</view>
+
+<!-- 搜索提示栏 -->
+<view class='search_tips_box' wx:if="{{flag}}">
+  <view class='search_tips_list' wx:for="{{vague}}" wx:key="index" bindtap='goRead' data-read='{{item._id}}'>{{item.title}}</view>
+</view>
+
+<!-- 推荐栏 -->
+<view class='hot_box' wx:else>
+  <view class='hot_words_top'>
+    <view>搜索热词</view>
+    <view class='rep' bindtap='replace'>
+      <text>换一批</text>
+      <image src='/images/agen.png'></image>
+    </view>
+  </view>
+
+  <!-- 加载进度条 -->
+  <view class='loading' wx:if="{{load}}">
+    <van-loading size="60px"></van-loading>
+  </view>
+
+  <view class='hot_words_bottom'>
+    <view wx:for="{{randomHot}}" wx:key="index" bindtap='onHot' data-word='{{item.word}}'>{{item.word}}</view>
+  </view>
+
+  <view class='search_history_top'>
+    <view>搜索历史</view>
+    <view class='delete' bindtap='onDelete'>删除</view>
+  </view>
+
+  <van-dialog id="van-dialog" />
+
+  <view class='search_history_bottom'>
+    <view wx:for="{{allstor}}" wx:key="index" bindtap='onHot' data-word='{{item}}'>{{item}}</view>
+  </view>
+
+  <view class='search_center {{search_flag ? "search_big" : null}}' wx:if="{{search_flag}}">
+
+    <view class='Books_box' wx:if="{{delay}}">
+      <view class='Book_list' wx:for="{{vague}}" wx:key="index" bindtap='goRead' data-read='{{item._id}}'>
+
+        <view class='Book_image'>
+          <image lazy-load='true' src='{{tools.cover(item.cover)}}'></image>
+        </view>
+
+        <view class='Book_content'>
+          <view>{{item.title}}</view>
+          <view>{{item.author}} | {{item.cat}}</view>
+          <view>{{item.shortIntro}}</view>
+          <view>
+            {{item.latelyFollower >= 10000 ? tools.math_round(item.latelyFollower) : item.latelyFollower + " 人气"}}
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+<!-- {{image_opacity ? "image_bign" : null}}' -->
+  <view class='image_box'  wx:if="{{imghidden}}" bindtap='returnImage'>
+    <image src='/images/return.png'></image>
+  </view>
+</view>

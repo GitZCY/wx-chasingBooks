@@ -1,0 +1,371 @@
+/* pages/readBook/index.wxss */
+.bg_white {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.bg_white_null {
+  display: none;
+}
+.readBook_box {
+  padding-bottom: 98rpx;
+  width: 100%;
+}
+/* 背景图 */
+.bg_box {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -3;
+}
+/* 背景图蒙层 */
+.Mongolia_box {
+  width: 100%;
+  height: 365rpx;
+  background: linear-gradient(to bottom, rgba(250, 250, 250, 0.4), rgba(255, 255, 255, 1));
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.head_box {
+  width: 90%;
+  height:320rpx;
+  margin: 20rpx auto;
+  display: flex;
+  align-items: center;
+  border-radius: 20rpx;
+}
+.head_box .head_left {
+  width: 25%;
+  height: 240rpx;
+  border: 1px solid orange;
+  vertical-align: middle;
+}
+.head_box .head_left image {
+  width: 100%;
+  height: 100%;
+}
+
+.head_right {
+  width: 75%;
+  height: 240rpx;
+}
+.head_right view {
+  padding-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+.head_right .head_rightUser {
+  font-size: 28rpx;
+} 
+.head_right .head_rightUser .userName {
+  color: red;
+}
+.head_right .head_rightUser .one {
+  margin: 0 10rpx;
+}
+.head_right .head_rightUser .category {
+  color: rgb(50, 50, 50);
+}
+.head_right .head_rightCount {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: rgb(50, 50, 50)
+}
+
+/* 图书以下 */
+.body_box {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.body_box .score_box {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20rpx;
+}
+.body_box .score_box .score_center{
+  margin-left: -40rpx;
+}
+
+.body_box .score_box .score_left van-rate {
+  display: inline-block;
+  margin-left: 10rpx;
+} 
+
+.body_box .score_box .score_left_top,
+.body_box .score_box .score_center_top,
+.body_box .score_box .score_right_top {
+  font-size: 18px;
+  color: rgb(82, 82, 82);
+  flex: 1;
+}
+.body_box .score_box .score_left_bottom,
+.body_box .score_box .score_center_bottom,
+.body_box .score_box .score_right_bottom {
+  font-size: 12px;
+  text-align: center;
+  color: rgb(153, 153, 153);
+  flex: 1;
+}
+.body_box .score_left .cao {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+}
+.body_box .score_left .cao van-rate {
+  display: flex;
+  align-items: flex-start;
+  /* background: red;  */
+}
+
+/* 简介 */
+.brief_box {
+  width: 90%;
+  margin: 40rpx auto;
+}
+.brief_box .brief_box_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brief_box .brief_box_head .down_img {
+  width: 4vw;
+  height: 4vw;
+}
+.brief_box .brief_box_head .down_img image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.brief_box .brief_box_list {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20rpx 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.brief_box .brief_box_list text{
+  font-size: 24rpx;
+  color: rgb(100, 100, 100);
+  background: #ccc;
+  margin-left: 20rpx;
+  padding: 10rpx;
+  border-radius: 30rpx;
+}
+.brief_box .brief_box_list text:nth-child(1) {
+  margin-left: 0;
+}
+.brief_box .brief_info {
+  width: 100%;
+  font-size: 0rpx;
+  letter-spacing: 2rpx;
+  word-break: pre-line;
+}
+.brief_box .brief_info .brief_small {
+  font-size: 28rpx;
+	text-overflow: ellipsis;
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; 
+  overflow: hidden; 
+  transition: all 0.5s;
+}
+.brief_box .brief_info .brief_big {
+  font-size: 28rpx;
+  height: 100%;
+}
+
+/* 目录 */
+.catalog_box {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(240, 240, 240);
+  font-size: 30rpx;
+}
+.catalog_right_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.catalog_right_box .catalog_right {
+  width: 280rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  color: rgb(83, 83, 83);
+}
+.catalog_image {
+  width: 20rpx;
+  height: 20rpx;
+  align-items: center;
+}
+.catalog_image image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 分割线 */
+.max_width_null {
+  width: 100%;
+  height: 20rpx;
+  background: rgb(240, 240, 240);
+}
+
+/* 名下书籍 */
+.user_book_box {
+  width: 100%;
+}
+.user_book_box .user_book_head {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid rgb(240, 240, 240);
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.user_book_box .flex_box {
+  width: 90%;
+  margin: 20rpx auto;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.user_book_box .flex_box .user_book_imgbox {
+  width: 22.5vw;
+  margin: 10rpx 10rpx 0;
+}
+.user_book_box .flex_box .user_book_imgbox:nth-child(1) {
+  margin-left: 0;
+}
+.user_book_box .flex_box .user_book_imgbox .user_book_img {
+  width: 22vw;
+  height: 240rpx;
+  margin: 0 auto;
+}
+.user_book_img image {
+  width: 100%;
+  height: 100%;
+}
+.user_book_box .flex_box .user_book_imgbox .user_book_name,
+.user_book_box .flex_box .user_book_imgbox .user_book_hot {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  margin-top: 4rpx;
+}
+.user_book_box .flex_box .user_book_imgbox .user_book_hot {
+  color: rgb(183, 183, 183);
+  font-size: 24rpx;
+}
+
+/* 加入书架 */
+.reading_box {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.reading_box .reading_open,
+.reading_box .reading_in {
+  width: 50%;
+  height: 100%;
+  background-color: white; 
+  float: left;
+  text-align: center;
+  line-height: 100rpx;
+}
+.reading_box .reading_open {
+  /* border-top: 1px solid #ccc; */
+}
+.reading_box .reading_in {
+  background: red;
+  /* border-top: 1px solid red; */
+  color: white;
+}
+
+.catalog_listbox {
+  width: 90vw;
+  height: 75vh;
+  /* width: 0;
+  height: 0; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid orange;
+  border-radius: 30rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* transition: all 0.5s; */
+  animation: aini 0.4s;
+}
+.animation_list {
+  width: 90vw;
+  height: 75vh;
+}
+@keyframes aini {
+  from {
+    width: 0rpx;
+    height: 0rpx;
+  }
+  to {
+    width: 90vw;
+    height: 75vh;
+  }
+}
+.catalog_listbox .catalog_head {
+  width: 90%;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  /* animation: aini 0.5s; */
+}
+.catalog_listbox .catalog_head .catalog_image {
+  width: 7%;
+  height: 60%;
+  float: left;
+}
+.catalog_image image {
+  width: 100%;
+  height: 100%;
+}
+.catalog_name {
+  width: 84%;
+  float: left;
+  padding-right: 2%;
+  text-align: center;
+}
+
+.catalog_list {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+.catalog_list view {
+  color: #323232;
+  padding: 5% 5% 3%;
+  font-size: 28rpx;
+  border-bottom: 1px solid #E6E6E6;
+}

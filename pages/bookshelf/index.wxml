@@ -1,0 +1,39 @@
+<!--pages/bookshelf/index.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class='bookShelf_box' bindtap='onBox'>
+
+  <view class='book_null' wx:if="{{falg}}">
+    <image src='/images/null.png'></image>
+    <view class='text'>还没有书籍哦</view>
+  </view>
+
+  <view class='book_list' wx:else="{{falg}}">
+    <view class='book_box' wx:for="{{loca}}" wx:key="index" catchtap='goRead' data-read='{{item._id}}' data-index='{{index}}' bindlongpress="longPress">
+      <view class='{{border_clip ? onIndex[index] == index ? "noClip" : "border_clip" : null}}'>
+        <view class='book_img'>
+          <image src='{{tools.cover(item.cover)}}'></image>
+        </view>
+      </view>
+
+      <view class='book_name'>
+        {{item.title}}
+      </view>
+    </view>
+
+    <view class='book_box'>
+      <view class='add' bindtap='addBook'>
+        <image src="/images/add.png"></image>
+      </view>
+    </view>
+
+    <view class='btn_box' wx:if="{{border_clip}}">
+      <view class='return_btn' catchtap='onBtn' data-index='0'>
+        取消
+      </view>
+      <view class='delete_btn' catchtap="onBtn" data-index='1'>
+        删除
+      </view>
+    </view>
+
+  </view>
+</view>

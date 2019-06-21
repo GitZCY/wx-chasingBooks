@@ -1,0 +1,60 @@
+<!--pages/article/index.wxml 看书页面 "enablePullDownRefresh": true-->
+<!-- 轻提示 -->
+<van-toast id="van-toast" />
+<!-- upper-threshold="1" bindscrolltoupper='scrollUpper' scroll-y='{{stop}}' scroll-top='{{topNum}}' -->
+<view class='look_box' bindtap='disNone' style='background: {{backGround}}'>
+<!-- class='{{cat ? "look_content_hid" : null}}' -->
+  <!-- <view class='{{cat ? "look_content_hid" : null}}'>   -->
+    <scroll-view class='look_content' >
+      <view wx:for="{{bookContent}}" wx:key="index">
+        <view class='title' id="msg-{{index}}" style='font-size: {{titleSize}}rpx; color: {{titleColor}}'>{{item[0]}}</view>
+        <view class='content' style='font-size: {{fontSize}}rpx; line-height: {{lineHeight}}rpx; color: {{fontColor}};' wx:for="{{item[1]}}" wx:key="index">{{item}}</view>
+      </view>
+    </scroll-view>
+  <!-- </view> -->
+
+  <!-- <view class='center_box' catchtap='dis'></view> -->
+
+  <!-- style='background-image: url("/images/background_ss.png")' wx:if='{{flag}}' -->
+  <view class='bottom_bar {{flag ? "bottom_animation" : null}}'>
+    <view class='bottom_fontSize'>
+      <view class='font_down' catchtap="changeSize" data-size='down'>Aa-</view>
+      <view class='font_center'>{{fontSize}}</view>
+      <view class='font_up' catchtap="changeSize" data-size='up'>Aa+</view>
+    </view>
+
+    <view class='bottom_bgc'>
+      <view wx:for="{{bgc}}" wx:key="index" class='{{active_bg == index ? "redBorder" : null}}' style='background-color: {{item}};' catchtap="changeColor" data-color='{{item}}' data-active='{{index}}'></view>
+    </view>
+
+    <view class='line_height'>
+      <view wx:for="{{lineheight}}" wx:key="index" class='{{item.title}}' catchtap="changeLine" data-index='{{index}}'>
+        <image src='{{active_li == index ? item.onurl : item.url}}'></image>
+      </view>
+    </view>
+
+    <view class='changePage'>
+      <view catchtap="onCatchtap">目录</view>
+    </view>
+
+  </view>
+
+  <view class='top_bar {{flag ? "top_animation" : null}}'>
+    <view class='bar_box'>
+      <view class='bar_left' catchtap="goBack">
+        <image src='/images/left.png'></image>
+        <view>返回</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='catalog_box {{cat ? "catalog_animation" : null}}'>
+    <view class='top_box'>
+      <view class='catalog_title'>{{bookName}}</view>
+      <view class='catalog_head'>目录</view>
+    </view>
+    <view class='bottom_box'>
+      <view class='catalog_list {{index == chapters_index ? "catalog_bright" : null}}' wx:for="{{allChapters}}" wx:key="index" catchtap="onChapters" data-index='{{index}}'>{{index+1}}. {{item.title}}</view>
+    </view>
+  </view>
+</view>

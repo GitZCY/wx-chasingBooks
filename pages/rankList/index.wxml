@@ -1,0 +1,29 @@
+<!--pages/rankList/index.wxml 排行-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+
+<van-tabs active="{{active}}" bind:change="onChange" animated swipeable sticky>
+ 
+  <van-tab wx:for="{{tabList}}" wx:key="index" title="{{item}}">
+    <!-- 没有内容时 -->
+    <view wx:if="{{flag}}" class='noInfo'>暂无数据</view>
+    <view class='Books_box' wx:else="{{flag}}">
+      <view class='Book_list' wx:for="{{allList}}" wx:key="index" bindtap='goRead' data-read='{{item._id}}'>
+
+        <view class='Book_image'>
+          <image lazy-load='true' src='{{tools.cover(item.cover)}}'></image>
+        </view>
+
+        <view class='Book_content'>
+          <view>{{item.title}}</view>
+          <view>{{item.author}} | {{item.majorCate}}</view>
+          <view>{{item.shortIntro}}</view>
+          <view>
+            {{item.latelyFollower >= 10000 ? tools.math_round(item.latelyFollower) : item.latelyFollower + " 人气"}}
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </van-tab>
+</van-tabs>
