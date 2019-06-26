@@ -124,13 +124,19 @@ Page({
   
   //路由跳转看书页面
   goRead(e) {
-    // this.setData({
-    //   value: '',
-    // })
     this.onSearch()
     wx.navigateTo({
       url: '../readBook/index?read=' + e.currentTarget.dataset.read
     })
+  },
+
+  //点击模糊搜索列表
+  onList(e) {
+    this.setData({
+      value: e.currentTarget.dataset.read,
+      tabbar: e.currentTarget.dataset.read
+    })
+    this.onSearch()
   },
 
   //点击搜索按钮

@@ -1,10 +1,5 @@
 <!--pages/search/index.wxml 搜索-->
 <wxs src="../../utils/tools.wxs" module="tools" />
-<!-- <van-search value="{{value}}" placeholder="请输入搜索关键词" use-action-slot="true" bind:search="onSearch" bind:change="onChange"
-  bind:clear="onClear" bind:focus="onFocus" bind:blur="blur">
-  <view slot="action" bind:tap="onSearch">搜索</view>
-</van-search> -->
-
 <view class='inp'>
   <view class='center_box'>
     <input placeholder='请输入搜索关键词' value='{{value}}' bindinput="onChange"></input>
@@ -12,9 +7,9 @@
   </view>
 </view>
 
-<!-- 搜索提示栏 -->
+<!-- 搜索提示栏goRead -->
 <view class='search_tips_box' wx:if="{{flag}}">
-  <view class='search_tips_list' wx:for="{{vague}}" wx:key="index" bindtap='goRead' data-read='{{item._id}}'>{{item.title}}</view>
+  <view class='search_tips_list' wx:for="{{vague}}" wx:key="index" bindtap='onList' data-read='{{item.title}}'>{{item.title}}</view>
 </view>
 
 <!-- 推荐栏 -->
@@ -69,7 +64,7 @@
     </view>
 
   </view>
-<!-- {{image_opacity ? "image_bign" : null}}' -->
+
   <view class='image_box'  wx:if="{{imghidden}}" bindtap='returnImage'>
     <image src='/images/return.png'></image>
   </view>
