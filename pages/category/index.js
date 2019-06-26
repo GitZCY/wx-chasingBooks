@@ -111,7 +111,6 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log("resss",res)
         Object.getOwnPropertyNames(res.data).forEach(function (key) {
           if (key == _this.data.sex) {
             for(let i = 0; i < res.data[key].length; i++) {
@@ -151,7 +150,6 @@ Page({
         'content-type': 'application/json'
       },
       success: res => {
-        console.log("this.data.start之前", this.data.start)
         let moreBooks = this.data.currentBook
         moreBooks.push(...(res.data.books))
         this.setData({

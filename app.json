@@ -13,13 +13,13 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#CDC97D",
+    "navigationBarBackgroundColor": "#FF0000",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "black",
-    "selectedColor": "#CDC97D",
+    "selectedColor": "#FF0000",
     "list": [
       {
         "pagePath": "pages/bookshelf/index",

@@ -44,7 +44,6 @@ Page({
           female: res.data.female,
           publish: res.data.press
         })
-        console.log(res.data)
         wx.hideLoading()
       }
     })
@@ -55,7 +54,6 @@ Page({
     this.setData({
       borderleft: e.currentTarget.dataset['index']
     })
-    // console.log(e.currentTarget.dataset.item)
     if (e.currentTarget.dataset.item == "男生") {
       this.setData({
         toView: "man"
@@ -91,7 +89,7 @@ Page({
   //   }).exec()
   // },
   
-  //获取节点 有用
+  //获取节点1 
   // query(id) {
   //   let querys = wx.createSelectorQuery()
   //   querys.select(id).boundingClientRect()
@@ -134,7 +132,6 @@ Page({
           publish: res.data.press
         })
         wx.hideLoading()
-        console.log("获取本地", _this.data.female)
       }
     })
 
@@ -149,7 +146,7 @@ Page({
   },
 
   onPageScroll: function (e) {
-    console.log(e); //{scrollTop:99}
+
   },
 
   /**

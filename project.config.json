@@ -16,7 +16,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx823297e3d812745f",
-	"projectname": "Demo1",
+	"projectname": "ChansingBooks",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

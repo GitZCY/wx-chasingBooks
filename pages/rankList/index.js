@@ -77,7 +77,6 @@ Page({
         this.setData({
           allList: res.data.ranking.books
         })
-        // console.log(res)
         wx.hideLoading()
       }
     })
@@ -94,7 +93,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("options", options)
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -110,10 +108,6 @@ Page({
       monthRank: options.monthRank,
       totalRank: options.totalRank
     })
-    // console.log("monthRank", this.data.monthRank)
-    // console.log("totalRank", this.data.totalRank)
-    // console.log("options", options)
-    // console.log(options.id)
     this.requireList(options.id)
   },
 

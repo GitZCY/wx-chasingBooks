@@ -30,7 +30,6 @@ Page({
         this.setData({
           onIndex: newArr
         })
-        console.log("第一次", newArr)
       } else {
         newArr = this.data.onIndex
 
@@ -43,7 +42,6 @@ Page({
         this.setData({
           onIndex: newArr
         })
-        console.log(this.data.onIndex)
       }
 
     } else {
@@ -84,11 +82,9 @@ Page({
 
   onBtn(e) {
     if (e.currentTarget.dataset.index == 1) {
-      console.log(this.data.onIndex)  
       wx.getStorage({
         key: 'Bookshelf',
-        success: (res)=> {
-          console.log(res.data)   
+        success: (res)=> { 
           let books = res.data
           for (let i = 0; i < books.length; i++) { 
             if (this.data.onIndex[i] > -1) { 
@@ -114,7 +110,6 @@ Page({
   },
 
   setStorage(info) {
-    console.log('info',info)
     if(info.length == 0) {
       wx.removeStorage({
         key: 'Bookshelf',
@@ -147,7 +142,6 @@ Page({
     wx.getStorage({
       key: 'Bookshelf',
       success: (res) => {
-        console.log("res", res)
         //判断是否有新书加入 
         if (this.loacLength != res.data.length) {
           this.setData({

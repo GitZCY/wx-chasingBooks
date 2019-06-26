@@ -46,7 +46,6 @@ Page({
         'content-type': 'application/json'
       },
       success: res => {
-        console.log('res', res)
         let spl_male = res.data.male.slice(0, 7)
         let spl_female = res.data.female.slice(0, 7)
         let spl_others_male = res.data.male.slice(7)
@@ -57,10 +56,6 @@ Page({
           male_others: spl_others_male,
           female_others: spl_others_female
         })
-        console.log('this.data.maleArr', this.data.maleArr)
-        console.log('this.data.femaleArr', this.data.femaleArr)
-        console.log('this.data.male_others', this.data.male_others)
-        console.log('this.data.female_others', this.data.female_others)
         wx.hideLoading()
       }
     })
@@ -68,7 +63,6 @@ Page({
 
   // 跳转到榜单页面
   goList(e) {
-    console.log("dataset",e.currentTarget.dataset)
     wx.navigateTo({
       url: `/pages/rankList/index?id=${e.currentTarget.dataset.listid}&name=${e.currentTarget.dataset.item}
 &monthRank=${e.currentTarget.dataset.monthrank}&totalRank=${e.currentTarget.dataset.totalrank}`
@@ -76,7 +70,7 @@ Page({
   },
 
   goLista(e) {
-    console.log("dataset", e.currentTarget.dataset)
+
   },
 
   /**

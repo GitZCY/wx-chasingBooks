@@ -13,22 +13,10 @@ Page({
   },
 
   onLoad: function () {   
-    // wx.request({
-    //   url: '', 
-    //   data: {
-        
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success(res) {
-    //     console.log(res)
-    //   }
-    // })
+    
   },
 
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

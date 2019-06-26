@@ -67,7 +67,6 @@ Page({
     wx.request({
       url: 'http://api.zhuishushenqi.com/book/' + name,
       success: (res)=> {
-        console.log("当前图书",res)
         //设置简介
         let str = res.data.longIntro.replace(/↵/g, "<text>\n</text>")
         //外部导入的字数方法
@@ -94,7 +93,6 @@ Page({
           image: "http://statics.zhuishushenqi.com" + res.data.cover,
           catalog: res.data.lastChapter,
         }) 
-        console.log(this.data.user)
         //请求作者名下书籍
         this.requireUserbook(res.data.author)
       }
@@ -110,7 +108,6 @@ Page({
           userBooks: res.data.books,
           dis: false
         })
-        console.log("this", this.data.userBooks)
         wx.hideLoading()
       }
     })
@@ -147,8 +144,6 @@ Page({
         this.setData({
           allChapters: res.data.mixToc.chapters,
         })
-        // console.log("allChapters", this.data.allChapters)
-        console.log("次数", this.data.currentbook._id)
       },
       fail: (res) => {
 
@@ -171,11 +166,9 @@ Page({
 
   //存储
   storage(res) {
-    console.log(res)
     let stor = []
     if(res) {
       for (let i = 0; i < res.data.length; i++) {
-        console.log("data",res.data)
         if (res.data[i]._id != this.data.currentbook._id) {
           if (i == res.data.length - 1) {
             stor.push(...(res.data), this.data.currentbook)
@@ -219,7 +212,6 @@ Page({
 
   //点击目录列表
   onChapters(e) {
-    console.log(e.currentTarget.dataset)
     wx.navigateTo({
       url: '../article/index?bookId=' + e.currentTarget.dataset.bookid + "&active=" + e.currentTarget.dataset.index +
         "&bookName=" + this.data.bookname
@@ -230,7 +222,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log("shuju", options)
     wx.showLoading({
       title: '加载中',
       mask: true

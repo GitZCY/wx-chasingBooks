@@ -56,17 +56,17 @@
 
 @keyframes borderClip {
   0%, 100% {
-    clip: rect(0rpx, 154rpx, 4rpx, 0rpx);
-  }
-  25% {
-    clip: rect(0rpx, 4rpx, 204rpx, 0rpx);
-  }
-  50% {
-    clip: rect(198rpx, 154rpx, 204rpx, 0px);
-  }
-  75% {
     clip: rect(0rpx, 154rpx, 204rpx, 148rpx);
   }
+  25% {  
+    clip: rect(198rpx, 154rpx, 204rpx, 0px);
+  }
+  50% {
+    clip: rect(0rpx, 4rpx, 204rpx, 0rpx);
+  }
+  75% {
+    clip: rect(0rpx, 154rpx, 4rpx, 0rpx);
+  } 
 }
 
 .book_list .book_box .book_img {

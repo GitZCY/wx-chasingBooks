@@ -99,7 +99,6 @@ Page({
 
   //监听搜索框
   onChange(e) {
-    console.log("oninput",e.detail.value.length)
     clearTimeout(time)
     if (e.detail.value.length == 0) {
       this.setData({

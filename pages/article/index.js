@@ -85,8 +85,6 @@ Page({
         }else {
           this.requireBookContent()
         }
-        
-        console.log("allChapters", this.data.allChapters)
       },
       fail: (res) => {
 
@@ -101,8 +99,6 @@ Page({
       mask: true
     })
     let info = this.data.allChapters[this.data.chapters_index]
-    console.log("chapters_index", info)
-    console.log("这个", typeof (parseInt(this.data.chapters_index) ) )
     let url = escape(info.link)
     let nowBookContent = []
     wx.request({
@@ -118,13 +114,9 @@ Page({
         this.setData({
           storage: arr
         })
-        console.log("arr", this.data.storage)
         let newarr = []
-        // console.log("内容", res.data.chapter)
         let str = res.data.chapter.body.split(/\n/g)
-        // console.log("str",str)
         nowBookContent.push(info.title, str)
-        console.log("asass", nowBookContent)
         let content = this.data.bookContent
         if(flag == "Front") {
           content.push(nowBookContent)
@@ -149,7 +141,6 @@ Page({
           })
         } 
         wx.hideLoading()
-        console.log("nowBookContent", this.data.bookContent)
       },
       fail: function(res) {
 
@@ -247,14 +238,12 @@ Page({
   onChapters(e) {
     let index = e.currentTarget.dataset.index
     let msgList = this.data.bookContent.length - 1
-    console.log("msg-" + msgList, this.data.bookContent)
     this.setData({
       chapters_index: index,
       cat: false,
       flag: false,
       storage: [],
     })
-    console.log("这个",this.data.toView)
     this.requireBookContent("remove")
     
     wx.pageScrollTo({
@@ -266,10 +255,8 @@ Page({
   scrollUpper() {
     let storageIndex = this.data.storage
     let num = 0
-    console.log(storageIndex)
     if (storageIndex[0] == 0) {
       Toast('当前已是第一章~');
-      // wx.stopPullDownRefresh() //停止下拉刷新
       return
     } else {
       num = storageIndex[0] - 1
@@ -280,42 +267,8 @@ Page({
     this.requireBookContent("after")
   },
 
-  //获取节点
-  // query() {
-  //   let querys = wx.createSelectorQuery()
-  //   querys.select('.catalog_bright').boundingClientRect()
-  //   querys.exec((res)=> {
-  //     // console.log(res);
-  //     // console.log(this.data.scrollTop)
-  //     // wx.pageScrollTo({
-  //     //   scrollTop: res.top,
-  //     //   duration: 1500
-  //     // })
-  //     this.setData({
-  //       scrollTop: res[0].top,
-  //     })
-  //   })
-  // },
-
-  //获取节点 有用
-  // query(id) {
-  //   let querys = wx.createSelectorQuery()
-  //   querys.select(id).boundingClientRect()
-  //   querys.exec((res)=> {
-  //     console.log(id+"距离顶部高度",res);
-      // console.log(this.data.scrollTop)
-      // wx.pageScrollTo({
-      //   scrollTop: res[0].top,
-      //   duration: 1500
-      // })
-      // this.setData({
-      //   scrollTop: res[0].top
-      // })
-    // })  
-  // },
-
   /**
-   * 生命周期函数--监听页面加载   bookName
+   * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
     
@@ -330,8 +283,6 @@ Page({
     })
 
     if (options.bookId && options.active) {
-      console.log("you", options.bookId, options.active)
-      console.log("类型",typeof (options.active))
       let num = 0
       if(typeof(options.active) == "string") {
         num = parseInt(options.active)
@@ -346,7 +297,6 @@ Page({
         })
       }
       
-      console.log('下标呀', this.data.chapters_index)
       this.requireBookList(options.bookId)     
     }else {
       this.requireBookList(options.bookId)
@@ -394,7 +344,6 @@ Page({
    */
   onReachBottom: function () {
     let storageIndex = this.data.storage
-    console.log("触底",storageIndex)
     let chapters = this.data.allChapters.length - 1
     let num = 0
     if (storageIndex[storageIndex.length - 1] == chapters) {
@@ -411,7 +360,6 @@ Page({
   //页面滚动
   onPageScroll: function (e) {
     if (e.scrollTop == 0) {
-      console.log("到顶了")
       this.scrollUpper()
     }
   },
