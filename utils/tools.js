@@ -19,7 +19,10 @@ export default {
   },
 
   //处理评分的方法
-  scores(num) {
+  scores(num) {  
+    if (typeof(num) != 'number') {
+      num = parseFloat(num)
+    }
     return num.toFixed(1)
   }
 }

@@ -67,6 +67,7 @@ Page({
     wx.request({
       url: 'http://api.zhuishushenqi.com/book/' + name,
       success: (res)=> {
+        console.log(res.data)
         //设置简介
         let str = res.data.longIntro.replace(/↵/g, "<text>\n</text>")
         //外部导入的字数方法
@@ -95,7 +96,10 @@ Page({
         }) 
         //请求作者名下书籍
         this.requireUserbook(res.data.author)
-      }
+      },
+      fail: (res) => {
+
+      },
     })
   },
 
@@ -109,7 +113,10 @@ Page({
           dis: false
         })
         wx.hideLoading()
-      }
+      },
+      fail: (res) => {
+
+      },
     })
   },
 

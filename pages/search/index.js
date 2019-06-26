@@ -55,6 +55,9 @@ Page({
           hotlist: res.data.searchHotWords
         })
         this.randomWord()
+      },
+      fail: () => {
+
       }
     })
   },
@@ -238,6 +241,9 @@ Page({
             allstor: []
           })
         },
+        fail: () => {
+
+        }
       })
     }).catch(() => {
 
