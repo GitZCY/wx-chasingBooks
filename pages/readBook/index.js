@@ -67,7 +67,6 @@ Page({
     wx.request({
       url: 'http://api.zhuishushenqi.com/book/' + name,
       success: (res)=> {
-        console.log(res.data)
         //设置简介
         let str = res.data.longIntro.replace(/↵/g, "<text>\n</text>")
         //外部导入的字数方法
@@ -103,7 +102,7 @@ Page({
     })
   },
 
-  // 请求名下书籍
+  // 请求名下书籍  
   requireUserbook(user) {
     wx.request({
       url: 'http://novel.juhe.im/author-books?author=' + user,
@@ -115,7 +114,11 @@ Page({
         wx.hideLoading()
       },
       fail: (res) => {
-
+        wx.hideLoading()
+        this.setData({
+          dis: false
+        })
+        console.log("请求名下书籍接口维护")
       },
     })
   },
@@ -128,7 +131,6 @@ Page({
 
   //目录
   oncatalog() { 
-    // this.requireBookList(this.data.currentbook._id)
     this.setData({
       flag_list: true
     })
@@ -222,6 +224,9 @@ Page({
     wx.navigateTo({
       url: '../article/index?bookId=' + e.currentTarget.dataset.bookid + "&active=" + e.currentTarget.dataset.index +
         "&bookName=" + this.data.bookname
+    })
+    this.setData({
+      flag_list: false
     })
   },
 

@@ -98,7 +98,7 @@
     <view class="reading_open" bindtap='joinBookshelf'>加入书架</view>
     <view class='reading_in' bindtap='playRead'>开始阅读</view>
   </view>
-<!-- {{flag ? "animation_list" : null}} wx:if='{{flag_list}}' wx:if='{{list}}' -->
+
   <view class='catalog_listbox' wx:if='{{flag_list}}'>
     <view class='catalog_head' wx:if='{{list}}'>
       <view class='catalog_image' bindtap='back'>

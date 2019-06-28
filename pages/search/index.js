@@ -277,19 +277,7 @@ Page({
 
   //页面滚动
   onPageScroll: function(e) {
-    // clearTimeout(time)
-    // this.setData({
-    //   record: e.scrollTop,
-    //   imghidden: false,
-    // })
-
-    // let time = setTimeout(() => {
-    //   if (e.scrollTop == this.data.record) {
-    //     this.setData({
-    //       imghidden: true,
-    //     })
-    //   }
-    // }, 200)
+    
   },
 
   /**
